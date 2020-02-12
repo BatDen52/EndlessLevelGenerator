@@ -1,5 +1,5 @@
 ﻿public enum GridLayer
 {
-    Ground=0,
-    OnGround=1
+    Ground = 0,
+    OnGround = 1
 }

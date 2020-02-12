@@ -248,9 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 79133310}
-  _speedX: 10
-  _speedZ: 5
-  _jumpForce: 5
+  _speed: {x: 7, y: 0, z: 7}
+  _jumpForce: 7
 --- !u!114 &79133312
 MonoBehaviour:
   m_ObjectHideFlags: 0
