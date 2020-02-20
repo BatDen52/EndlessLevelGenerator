@@ -8,18 +8,21 @@ public class UI : MonoBehaviour
 {
     [SerializeField] private Text _textScore;
 
+    private Wallet _wallet;
+
     private void OnEnable()
     {
-        GetComponent<Wallet>().GetingScore += PrintScore;
+        _wallet = GetComponent<Wallet>();
+        _wallet.ScoreGeting += PrintScore;
+    }
+
+    private void OnDisable()
+    {
+        _wallet.ScoreGeting -= PrintScore;
     }
 
     private void PrintScore(int score)
     {
         _textScore.text = score.ToString();
-    }
-
-    private void OnDisable()
-    {
-        GetComponent<Wallet>().GetingScore -= PrintScore;
     }
 }

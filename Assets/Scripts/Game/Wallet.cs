@@ -6,25 +6,27 @@ using UnityEngine.Events;
 [RequireComponent(typeof(TakeCoin))]
 public class Wallet : MonoBehaviour
 {
-    public event UnityAction<int> GetingScore;
+    public event UnityAction<int> ScoreGeting;
 
     private int _score;
+    private TakeCoin _takeCoin;
 
     public int Score => _score;
 
     private void OnEnable()
     {
-        GetComponent<TakeCoin>().TakingCoin += OnTakingCoin;
-    }
-
-    public void OnTakingCoin(int count)
-    {
-        _score += count;
-        GetingScore?.Invoke(_score);
+        _takeCoin = GetComponent<TakeCoin>();
+        _takeCoin.Taking += OnTaking;
     }
 
     private void OnDisable()
     {
-        GetComponent<TakeCoin>().TakingCoin -= OnTakingCoin;
+        _takeCoin.Taking -= OnTaking;
+    }
+
+    public void OnTaking(int count)
+    {
+        _score += count;
+        ScoreGeting?.Invoke(_score);
     }
 }

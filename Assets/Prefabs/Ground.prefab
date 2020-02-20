@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3846640248387128678}
   - component: {fileID: 8073813154225461906}
   - component: {fileID: 1394015046435054374}
+  - component: {fileID: 357540867016115829}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -107,3 +108,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer: 0
   _chance: 100
+--- !u!114 &357540867016115829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201842107423083301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cf9b6094d89c8498a10fd461c92111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

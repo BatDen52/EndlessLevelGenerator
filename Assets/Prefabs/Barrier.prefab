@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7639705687924768708}
   - component: {fileID: 238384716411903244}
   - component: {fileID: -4689560030661560243}
+  - component: {fileID: 2956827774625271320}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -108,3 +109,15 @@ MonoBehaviour:
   _layer: 1
   _chance: 1
   _type: 1
+--- !u!114 &2956827774625271320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725965421274106399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2254fdd02597d9a4aadbe4398829a312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

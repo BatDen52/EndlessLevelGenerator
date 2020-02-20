@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class TakeCoin : MonoBehaviour
 {
-    public event UnityAction<int> TakingCoin;
+    public event UnityAction<int> Taking;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<GridObject>()?.Type == ObjectType.Coin)
+        if (other.gameObject.GetComponent<Coin>() != null)
         {
             Destroy(other.gameObject);
-            TakingCoin?.Invoke(1);
+            Taking?.Invoke(1);
         }
     }
 }

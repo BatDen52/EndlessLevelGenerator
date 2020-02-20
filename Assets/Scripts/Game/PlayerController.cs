@@ -5,27 +5,34 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Vector3 _speed;
-    [SerializeField] private float _jumpForce;
+    [SerializeField] private PlayerMover _player;
 
     private bool _isGround;
 
-    public float Speed => _speed.x;
-
-    void Update()
+    private void Update()
     {
-        _rigidbody.velocity = new Vector3(_speed.x, 
-            Convert.ToInt32(_isGround && Input.GetKey(KeyCode.Space)) == 0 ? _rigidbody.velocity.y : _jumpForce,
-            (Convert.ToInt32(Input.GetKey(KeyCode.W)) - Convert.ToInt32(Input.GetKey(KeyCode.S))) * _speed.z);
+        _player.MoveLeft();
 
         if (_isGround && Input.GetKey(KeyCode.Space))
+        {
+            _player.Jump();
             _isGround = false;
+        }
+        else
+        if (Input.GetKey(KeyCode.W))
+        {
+            _player.MoveUp();
+        }
+        else
+        if (Input.GetKey(KeyCode.S))
+        {
+            _player.MoveDown();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<GridObject>()?.Layer == GridLayer.Ground)
+        if (collision.gameObject.GetComponent<Ground>() != null)
             _isGround = true;
     }
 }

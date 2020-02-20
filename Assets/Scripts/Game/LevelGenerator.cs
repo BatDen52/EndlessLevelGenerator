@@ -48,7 +48,7 @@ public class LevelGenerator : MonoBehaviour
         Vector3 position = GridToWorldPosition(gridPosition);
 
         GameObject gameObj = Instantiate(tamplate, position, Quaternion.identity, transform).gameObject;
-        Destroy(gameObj, _player.gameObject.GetComponent<PlayerController>().Speed/_cellSize);
+        Destroy(gameObj, _player.gameObject.GetComponent<PlayerMover>().Speed/_cellSize);
     }
 
     private GridObject GetRandomTemplate(GridLayer layer)

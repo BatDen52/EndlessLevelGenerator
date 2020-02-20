@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 79133315}
   - component: {fileID: 79133314}
   - component: {fileID: 79133313}
+  - component: {fileID: 79133316}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -247,9 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385ec8d9337a42f42bd75aca51730549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 79133310}
-  _speed: {x: 7, y: 0, z: 7}
-  _jumpForce: 7
+  _player: {fileID: 79133316}
 --- !u!114 &79133312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +298,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd89dfaa7fab7a4a83584b114aced49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &79133316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79133305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9798675ebfb86ff4ab49c4a74417991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 79133310}
+  _speed: {x: 7, y: 7, z: 7}
+  _jumpForce: 7
 --- !u!1 &232669510
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6405999cba7e6d47961d73b5766e959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 79133305}
+  _target: {fileID: 79133309}
 --- !u!1 &1374033644
 GameObject:
   m_ObjectHideFlags: 0
