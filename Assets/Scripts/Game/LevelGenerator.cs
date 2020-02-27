@@ -10,6 +10,12 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float _cellSize;
 
     private HashSet<Vector3Int> _collisionsMatrix = new HashSet<Vector3Int>();
+    private float _playerSpeed;
+
+    private void Start()
+    {
+        _playerSpeed = _player.gameObject.GetComponent<PlayerMover>().Speed;
+    }
 
     void Update()
     {
@@ -40,15 +46,15 @@ public class LevelGenerator : MonoBehaviour
         else
             _collisionsMatrix.Add(gridPosition);
 
-        GridObject tamplate = GetRandomTemplate(layer);
+        GridObject template = GetRandomTemplate(layer);
 
-        if (tamplate == null)
+        if (template == null)
             return;
 
         Vector3 position = GridToWorldPosition(gridPosition);
 
-        GameObject gameObj = Instantiate(tamplate, position, Quaternion.identity, transform).gameObject;
-        Destroy(gameObj, _player.gameObject.GetComponent<PlayerMover>().Speed/_cellSize);
+        GameObject createdObject = Instantiate(template, position, Quaternion.identity, transform).gameObject;
+        Destroy(createdObject, _playerSpeed/_cellSize);
     }
 
     private GridObject GetRandomTemplate(GridLayer layer)

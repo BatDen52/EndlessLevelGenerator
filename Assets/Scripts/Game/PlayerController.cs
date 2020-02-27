@@ -18,13 +18,11 @@ public class PlayerController : MonoBehaviour
             _player.Jump();
             _isGround = false;
         }
-        else
-        if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKey(KeyCode.W))
         {
             _player.MoveUp();
         }
-        else
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             _player.MoveDown();
         }

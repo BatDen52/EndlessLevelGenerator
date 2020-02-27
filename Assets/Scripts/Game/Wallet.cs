@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(TakeCoin))]
+[RequireComponent(typeof(TakingCoin))]
 public class Wallet : MonoBehaviour
 {
     public event UnityAction<int> ScoreGeting;
 
     private int _score;
-    private TakeCoin _takeCoin;
+    private TakingCoin _takeCoin;
 
     public int Score => _score;
 
     private void OnEnable()
     {
-        _takeCoin = GetComponent<TakeCoin>();
+        _takeCoin = GetComponent<TakingCoin>();
         _takeCoin.Taking += OnTaking;
     }
 
