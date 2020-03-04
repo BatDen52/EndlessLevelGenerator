@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(TakingCoin))]
 public class Wallet : MonoBehaviour
 {
-    public event UnityAction<int> ScoreGeting;
+    public event UnityAction<int> ChangedScore;
 
     private int _score;
-    private TakingCoin _takeCoin;
 
     public int Score => _score;
 
-    private void OnEnable()
-    {
-        _takeCoin = GetComponent<TakingCoin>();
-        _takeCoin.Taking += OnTaking;
-    }
-
-    private void OnDisable()
-    {
-        _takeCoin.Taking -= OnTaking;
-    }
-
-    public void OnTaking(int count)
+    public void TakeCoin(int count)
     {
         _score += count;
-        ScoreGeting?.Invoke(_score);
+        ChangedScore?.Invoke(_score);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Coin>() != null)
+        {
+            Destroy(other.gameObject);
+            TakeCoin(1);
+        }
     }
 }

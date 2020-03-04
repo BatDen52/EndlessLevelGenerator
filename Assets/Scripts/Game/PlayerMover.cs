@@ -1,32 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Vector3 _speed;
-    [SerializeField] private float _jumpForce;
-    
-    public float Speed => _speed.magnitude;
+    [SerializeField] private Mover _player;
 
-    public void Jump()
+    private bool _isGrounded;
+
+    private void Update()
     {
-        _rigidbody.velocity = new Vector3(_speed.x, _jumpForce, _rigidbody.velocity.z);
+        _player.MoveLeft();
+
+        if (_isGrounded && Input.GetKey(KeyCode.Space))
+        {
+            _player.Jump();
+            _isGrounded = false;
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            _player.MoveUp();
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            _player.MoveDown();
+        }
     }
 
-    public void MoveUp()
+    private void OnCollisionEnter(Collision collision)
     {
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _speed.z);
-    }
-
-    public void MoveDown()
-    {
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, -1 * _speed.z);
-    }
-
-    public void MoveLeft()
-    {
-        _rigidbody.velocity = new Vector3(_speed.x, _rigidbody.velocity.y, 0);
+        if (collision.gameObject.GetComponent<Ground>() != null)
+            _isGrounded = true;
     }
 }

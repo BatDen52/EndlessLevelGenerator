@@ -13,12 +13,12 @@ public class UI : MonoBehaviour
     private void OnEnable()
     {
         _wallet = GetComponent<Wallet>();
-        _wallet.ScoreGeting += PrintScore;
+        _wallet.ChangedScore += PrintScore;
     }
 
     private void OnDisable()
     {
-        _wallet.ScoreGeting -= PrintScore;
+        _wallet.ChangedScore -= PrintScore;
     }
 
     private void PrintScore(int score)

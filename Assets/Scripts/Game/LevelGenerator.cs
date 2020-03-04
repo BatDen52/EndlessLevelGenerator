@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
-        _playerSpeed = _player.gameObject.GetComponent<PlayerMover>().Speed;
+        _playerSpeed = _player.gameObject.GetComponent<Mover>().Speed;
     }
 
     void Update()
