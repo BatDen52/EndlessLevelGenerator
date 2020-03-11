@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
-    public event UnityAction<int> ChangedScore;
+    public event UnityAction<int> ScoreChanged;
 
     private int _score;
 
@@ -14,15 +14,6 @@ public class Wallet : MonoBehaviour
     public void TakeCoin(int count)
     {
         _score += count;
-        ChangedScore?.Invoke(_score);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Coin>() != null)
-        {
-            Destroy(other.gameObject);
-            TakeCoin(1);
-        }
+        ScoreChanged?.Invoke(_score);
     }
 }

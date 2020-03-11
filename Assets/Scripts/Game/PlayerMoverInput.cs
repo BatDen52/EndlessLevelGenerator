@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMover : MonoBehaviour
+public class PlayerMoverInput : MonoBehaviour
 {
     [SerializeField] private Mover _player;
 
